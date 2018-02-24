@@ -1,0 +1,19 @@
+html{height:100%;}
+body{height:100%; margin:0px;  font-family: arial, Helvetica, sans-serif; font-size:12px;}
+img{border:none;}
+
+.tit{
+	text-align: center;
+}
+
+.col-sm-4{
+	text-align: right;
+}
+
+.btn{
+	margin-top: 10px;
+}
+
+.obli{
+	color: #c91818;
+}

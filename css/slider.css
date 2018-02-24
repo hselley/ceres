@@ -1,0 +1,31 @@
+/* Slide Imagenes */
+#gallery { display: block; float:left; width:745px; }
+#s3sliderContent { margin:0px; padding:0px;}
+#s3slider { width: 745px; height: 400px; position: relative; overflow: hidden; }
+
+#s3sliderContent { width: 745px; position: absolute;top: 0px;
+	margin-left: 0px;
+}
+.sliderImage {
+    float: left;
+    position: relative;
+	display: none;
+}
+.sliderImage span {
+    position: absolute;
+	font: 10px/15px Arial, Helvetica, sans-serif;
+    padding: 10px 13px;
+    width: 1024px;
+    background-color: #000;
+    filter: alpha(opacity=70);
+    -moz-opacity: 0.7;
+	-khtml-opacity: 0.7;
+    opacity: 0.7;
+    color: #fff;
+    display: none;
+}
+
+.clear {
+	clear: both;
+}
+
