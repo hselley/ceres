@@ -1,4 +1,4 @@
-<? $tipo = 1; $path = "../"; include("../../../func/funciones.php");
+<?php  $tipo = 1; $path = "../"; include("../../../func/funciones.php");
 $row = seleccionar("SELECT * FROM producto ORDER BY id");
 while($row = mysqli_fetch_array($query)) {
   $regreso = $regreso .'<li class="col-sm-3">

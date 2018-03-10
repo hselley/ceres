@@ -49,10 +49,10 @@
   	 <label for="apellido">Estado*:</label>
   	 <select class="form-control" name="iuserc_8" id="iuserc_8">
        <option value="-1">Seleccionar...</option>
-  		 <? $res = seleccionar("SELECT DISTINCT idEstado, estado FROM sepomex ORDER BY estado");
+  		 <?php  $res = seleccionar("SELECT DISTINCT idEstado, estado FROM sepomex ORDER BY estado");
   		 		while ($row = mysqli_fetch_array($res)){?>
-  					<option value="<? echo $row["idEstado"]?>"><? echo $row["estado"]?></option>
-  				<? } ?>
+  					<option value="<?php  echo $row["idEstado"]?>"><?php  echo $row["estado"]?></option>
+  				<?php  } ?>
   		</select>
    </div>
    <div class="form-group">

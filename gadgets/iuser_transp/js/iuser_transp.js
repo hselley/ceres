@@ -102,41 +102,41 @@ function validarRegistro()
 	for(var i2 = 0; i2 < oi; i2++)
 	{
 		if(i2==2){
-			if (!validateEmail("iuser_" + obl[i2], al[cual]))
+			if (!validateEmail("iusert_" + obl[i2], al[cual]))
 				return;
 			cual++;
 		}else if(i2==4){
-			if (!validarCoincidencia("iuser_4", "iuser_5", al[cual]))
+			if (!validarCoincidencia("iusert_4", "iusert_5", al[cual]))
 				return;
 			cual++;
 		}else{
-			if (!validarVacio("iuser_" + obl[i2],al[cual]))
-				return document.getElementById("iuser_" + obl[i2]).focus();;
+			if (!validarVacio("iusert_" + obl[i2],al[cual]))
+				return document.getElementById("iusert_" + obl[i2]).focus();;
 			cual++;
 		}
 	}
 
-	if (!validarSeleccion("iuser_8", al[cual]))
+	if (!validarSeleccion("iusert_8", al[cual]))
 		return;
 	cual++;
-	if (!validarSeleccion("iuser_16", al[cual]))
+	if (!validarSeleccion("iusert_16", al[cual]))
 		return;
 	cual++;
-	if (!validarSeleccion("iuser_18", al[cual]))
+	if (!validarSeleccion("iusert_18", al[cual]))
 		return;
 	cual++;
-	if (!validarSeleccion("iuser_19", al[cual]))
+	if (!validarSeleccion("iusert_19", al[cual]))
 		return;
 	cual++;
-	if (!validarSeleccion("iuser_20", al[cual]))
-		return;
-	cual++;
-
-	if (!validarChecked("chk_1", al[cual]))
+	if (!validarSeleccion("iusert_20", al[cual]))
 		return;
 	cual++;
 
-		registerUser();
+	if (!validarChecked("chkt_1", al[cual]))
+		return;
+	cual++;
+
+		ajaxRegistroT();
 }
 
 function ajaxLogOut()
@@ -185,7 +185,37 @@ function cambioDisp()
 	ajaxRequest.send(null);
 }
 
-function registerUser()
+function ajaxRegistroT(){
+	//alert("e");
+	document.getElementById("iuser_waiting").style.display="";
+	var formObjT = $("#form_registert");
+	    var formDataT = new FormData(document.getElementById('form_registert'));
+	    $.ajax({
+	        url: '../gadgets/iuser_transp/ajax/email.php',
+	    type: 'POST',
+	        data:  formDataT,
+	    mimeType:"multipart/form-data",
+	    contentType: false,
+	        cache: false,
+	        processData:false
+	}).done(function (res) {
+
+		//document.getElementById("iuser_waiting").style.display="none";
+		if (res == "OK")
+		{
+		registerUserT();
+		}
+		else
+		{
+		alerta1(res);
+		//document.getElementById("iuser_2").focus();
+		}
+	}).fail(function () {
+
+	});
+}
+
+function registerUserT()
 {
 		//document.getElementById("iuser_waiting").style.display="";
 	 var formObj = $("#form_registert");

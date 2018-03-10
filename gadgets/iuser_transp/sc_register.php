@@ -19,88 +19,88 @@
    <div class="form-group">
    <label class="obli">*Campos Obligatorios</label><br>
   	 <label for="nombre">Razón Social*:</label>
-  	 <input type="text" class="form-control" name="iuser_1" id="iuser_1">
+  	 <input type="text" class="form-control" name="iusert_1" id="iusert_1">
    </div>
    <div class="form-group">
   	 <label for="apellido">Nombre del Conductor*:</label>
-  	 <input type="text" class="form-control" name="iuser_2" id="iuser_2">
+  	 <input type="text" class="form-control" name="iusert_2" id="iusert_2">
    </div>
    <div class="form-group">
   	 <label for="apellido">Correo Electrónico*:</label>
-  	 <input type="text" class="form-control" name="iuser_3" id="iuser_3">
+  	 <input type="text" class="form-control" name="iusert_3" id="iusert_3">
    </div>
    <div class="form-group">
   	 <label for="apellido">Contraseña*:</label>
-  	 <input type="password" class="form-control" name="iuser_4" id="iuser_4">
+  	 <input type="password" class="form-control" name="iusert_4" id="iusert_4">
    </div>
    <div class="form-group">
   	 <label for="apellido">Reintroduce tu Contraseña:</label>
-  	 <input type="password" class="form-control" name="iuser_5" id="iuser_5">
+  	 <input type="password" class="form-control" name="iusert_5" id="iusert_5">
    </div>
    <div class="form-group">
   	 <label for="apellido">Teléfono*:</label>
-  	 <input type="text" class="form-control" name="iuser_6" id="iuser_6">
+  	 <input type="text" class="form-control" name="iusert_6" id="iusert_6">
    </div>
    <div class="form-group">
   	 <label for="apellido">Celular:</label>
-  	 <input type="text" class="form-control" name="iuser_7" id="iuser_7">
+  	 <input type="text" class="form-control" name="iusert_7" id="iusert_7">
    </div>
    <div class="form-group">
   	 <label for="apellido">Estado*:</label>
-  	 <select class="form-control" name="iuser_8" id="iuser_8">
+  	 <select class="form-control" name="iusert_8" id="iusert_8">
        <option value="-1">Seleccionar...</option>
-  		 <? $res = seleccionar("SELECT * FROM estado ORDER BY Estado");
+  		 <?php  $res = seleccionar("SELECT DISTINCT idEstado, estado FROM sepomex ORDER BY estado");
   		 		while ($row = mysqli_fetch_array($res)){?>
-  					<option value="<? echo $row["Estado"]?>"><? echo $row["Estado"]?></option>
-  				<? } ?>
+  					<option value="<?php  echo $row["idEstado"]?>"><?php  echo $row["estado"]?></option>
+  				<?php  } ?>
   		</select>
    </div>
    <div class="form-group">
   	 <label for="apellido">Nombre del Banco*:</label>
-  	 <input type="text" class="form-control" name="iuser_9" id="iuser_9">
+  	 <input type="text" class="form-control" name="iusert_9" id="iusert_9">
    </div>
    <div class="form-group">
   	 <label for="apellido">No. Cuenta Bancaria*:</label>
-  	 <input type="text" class="form-control" name="iuser_10" id="iuser_10">
+  	 <input type="text" class="form-control" name="iusert_10" id="iusert_10">
    </div>
    <div class="form-group">
   	 <label for="apellido">No. CLABE Interbancaria*:</label>
-  	 <input type="text" class="form-control" name="iuser_11" id="iuser_11">
+  	 <input type="text" class="form-control" name="iusert_11" id="iusert_11">
    </div>
    <h4 class="title"><span class="text"><strong>ALTA DEL VEHÍCULO</strong></span></h4>
    <div class="form-group">
      <label for="apellido">Propietario*:</label>
-     <input type="text" class="form-control" name="iuser_12" id="iuser_12">
+     <input type="text" class="form-control" name="iusert_12" id="iusert_12">
    </div>
    <div class="form-group">
      <label for="apellido">Placas*:</label>
-     <input type="text" class="form-control" name="iuser_13" id="iuser_13">
+     <input type="text" class="form-control" name="iusert_13" id="iusert_13">
    </div>
    <div class="form-group">
      <label for="apellido">Número de Serie*:</label>
-     <input type="text" class="form-control" name="iuser_14" id="iuser_14">
+     <input type="text" class="form-control" name="iusert_14" id="iusert_14">
    </div>
    <div class="form-group">
      <label for="apellido">Tipo*:</label>
-     <input type="text" class="form-control" name="iuser_15" id="iuser_15">
+     <input type="text" class="form-control" name="iusert_15" id="iusert_15">
    </div>
    <div class="form-group">
      <label for="apellido">Marca*:</label>
-     <select class="form-control" name="iuser_16" id="iuser_16">
+     <select class="form-control" name="iusert_16" id="iusert_16">
        <option value="-1">Seleccionar...</option>
-  		 <? $res2 = seleccionar("SELECT * FROM marcas_vehiculo ORDER BY Marca");
+  		 <?php  $res2 = seleccionar("SELECT * FROM marcas_vehiculo ORDER BY Marca");
   		 		while ($row2 = mysqli_fetch_array($res2)){?>
-  					<option value="<? echo $row2["Marca"]?>"><? echo $row2["Marca"]?></option>
-  				<? } ?>
+  					<option value="<?php  echo $row2["Marca"]?>"><?php  echo $row2["Marca"]?></option>
+  				<?php  } ?>
   	 </select>
    </div>
    <div class="form-group">
      <label for="apellido">Año*:</label>
-     <input type="text" class="form-control" name="iuser_17" id="iuser_17">
+     <input type="text" class="form-control" name="iusert_17" id="iusert_17">
    </div>
    <div class="form-group">
      <label for="apellido">Capacidad de Carga*:</label>
-     <select class="form-control" name="iuser_18" id="iuser_18">
+     <select class="form-control" name="iusert_18" id="iusert_18">
        <option value="-1">Seleccionar...</option>
        <option value="1 a 5 tons">1 a 5 tons</option>
        <option value="5 a 10 tons">5 a 10 tons</option>
@@ -112,7 +112,7 @@
    </div>
    <div class="form-group">
   	 <label for="apellido">Refrigeración*:</label>
-  	 <select class="form-control" name="iuser_19" id="iuser_19">
+  	 <select class="form-control" name="iusert_19" id="iusert_19">
        <option value="-1">Seleccionar...</option>
        <option value="SI">Si</option>
        <option value="NO">No</option>
@@ -120,7 +120,7 @@
    </div>
    <div class="form-group">
   	 <label for="apellido">Disponible para empezar a entregar*:</label>
-  	 <select class="form-control" name="iuser_20" id="iuser_20">
+  	 <select class="form-control" name="iusert_20" id="iusert_20">
        <option value="-1">Seleccionar...</option>
        <option value="SI">Si</option>
        <option value="NO">No</option>
@@ -128,7 +128,7 @@
    </div>
    <h4 class="title"><span class="text"><strong>ACEPTACIÓN DE TÉRMINOS Y CONDICIONES</strong></span></h4>
    <div class="checkbox">
-  	 <label><input type="checkbox" required name="chk_1" id="chk_1">Acepto las Condiciones de Participación como Transportista CERES*</label>
+  	 <label><input type="checkbox" required name="chkt_1" id="chkt_1">Acepto las Condiciones de Participación como Transportista CERES*</label>
   	 <a href="../fotos/documentos/condiciones.pdf" target="_blank">Ver condiciones</a>
    </div>
    <button class="btn btn-success" onClick="validarRegistro()">Registrar</button>

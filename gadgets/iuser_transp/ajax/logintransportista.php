@@ -1,4 +1,4 @@
-<? $tipo = 1; $path = "../"; include("../../../func/funciones.php");
+<?php  $tipo = 1; $path = "../"; include("../../../func/funciones.php");
 
 $i = 1;
 while(isset($_POST["logint_".$i]))
@@ -16,6 +16,6 @@ while(isset($_POST["logint_".$i]))
 		$_SESSION['NumVehiculo']=$r2["ID"];
 		echo("OK");
 	} else {?>
-		<?echo $valuelog[1]."ERROR: El usuario y/o contraseña no son correctos"?>
-	<?}
+		<?php echo ("ERROR: El usuario y/o contraseña no son correctos");?>
+	<?php }
 ?>

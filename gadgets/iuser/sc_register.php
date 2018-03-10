@@ -1,13 +1,13 @@
 <div <div class="col-sm-5">
   <h4 class="title"><span class="text"><strong>LOGIN COMO PRODUCTOR CERES</strong></span></h4>
-  <form name="form4" id="form4" method="post" style="width: 75%; position: relative; left: 12.5%; margin-bottom: 20px">
+  <form name="LIP" id="LIP" method="post" style="width: 75%; position: relative; left: 12.5%; margin-bottom: 20px">
     <div class="form-group">
    	 <label for="nombre">Correo Electrónico:</label>
-   	 <input type="text" class="form-control" name="login_1" id="login_1">
+   	 <input type="text" class="form-control" name="loginp_1" id="loginp_1">
     </div>
     <div class="form-group">
    	 <label for="apellido">Contraseña:</label>
-   	 <input type="password" class="form-control" name="login_2" id="login_2">
+   	 <input type="password" class="form-control" name="loginp_2" id="loginp_2">
     </div>
     <button class="btn btn-success" onClick="validarlogin()">Login</button>
   </form>
@@ -49,10 +49,10 @@
   	 <label for="apellido">Estado*:</label>
   	 <select class="form-control" name="iuser_8" id="iuser_8">
        <option value="-1">Seleccionar...</option>
-  		 <? $res = seleccionar("SELECT * FROM estado ORDER BY Estado");
+  		 <?php  $res = seleccionar("SELECT DISTINCT idEstado, estado FROM sepomex ORDER BY estado");
   		 		while ($row = mysqli_fetch_array($res)){?>
-  					<option value="<? echo $row["Estado"]?>"><? echo $row["Estado"]?></option>
-  				<? } ?>
+  					<option value="<?php  echo $row["idEstado"]?>"><?php  echo $row["estado"]?></option>
+  				<?php  } ?>
   		</select>
    </div>
    <div class="form-group">

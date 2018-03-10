@@ -1,4 +1,4 @@
-<? $tipo = 1; $path = "../"; include("../../../func/funciones.php");
+<?php  $tipo = 1; $path = "../"; include("../../../func/funciones.php");
 
 $i = 1;
 while(isset($_POST["prod_".$i]))
@@ -24,8 +24,9 @@ $c_prod = 0;
 	$campos_prod[$c_prod] = 'Empaque';
 	$datos_prod[$c_prod] = ($values_prod[5]);$c_prod++;
 	$campos_prod[$c_prod] = 'Cantidad';
-	$cantidades = " ".$values_prod[6]." ".$values_prod[7];
-	$datos_prod[$c_prod] = $cantidades;$c_prod++;
+	$datos_prod[$c_prod] = ($values_prod[6]);$c_prod++;
+	$campos_prod[$c_prod] = 'Medida';
+	$datos_prod[$c_prod] = ($values_prod[7]);$c_prod++;
 	$campos_prod[$c_prod] = 'Foto';
 	$datos_prod[$c_prod] = ('Falta');$c_prod++;
 

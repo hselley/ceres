@@ -1,4 +1,4 @@
-<?
+<?php 
 /* VARIABLES
 REGRESA LA CONEXION A LA BAE DE DATOS DEPENDIENDO DE LA VARIABLE $DB */
 
@@ -92,6 +92,35 @@ function actualizar($campos, $datos, $tabla, $id, $revisar = false)
 			$i = $i +1;
 		}
 		$queryString = substr($queryString, 0, strlen($queryString)-2)." where id = ".$id;
+		//echo($queryString);
+		$string_error[0] = correr_query($queryString);
+		return $string_error;
+	}
+	catch (Exception $e)
+	{
+		$string_error[0] = $e;
+		return $string_error;
+	}
+}
+
+function actualizarcart($campos, $datos, $tabla, $idu, $idp, $revisar = false)
+{
+	$string_error[0] = "";
+	try
+	{
+		$queryString = "update ".$tabla." set ";
+		$i =0;
+		foreach($campos as $key)
+		{
+			$datos[$i] = str_replace("'","\'",$datos[$i]);
+
+			if ($revisar)
+				$queryString= $queryString.$key."='".revisarString($datos[$i])."', ";
+			else
+				$queryString= $queryString.$key."='".$datos[$i]."', ";
+			$i = $i +1;
+		}
+		$queryString = substr($queryString, 0, strlen($queryString)-2)." where ID_Cliente = ".$idu;
 		//echo($queryString);
 		$string_error[0] = correr_query($queryString);
 		return $string_error;

@@ -444,6 +444,7 @@ section.navbar{
 	color:#fff !important;
 }
 .product-box img{
+	width:100%;
 	overflow:hidden;
 }
 .product-box a.title{

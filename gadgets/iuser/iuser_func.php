@@ -1,4 +1,4 @@
-<?
+<?php 
 
 //Regenerar ID
 function iniciarSesion()
@@ -50,13 +50,11 @@ function validarLoginUsuario($usuario, $password,$rem)
 //Valida si existe el email registrado
 function validarEmail($usuario)
 {
-	$res = seleccionar("select * from productor where Nombre = '".$usuario."'");
+	$res = seleccionar("select * from productor_2 where Email = '".$usuario."'");
 	if (mysqli_num_rows($res) > 0)
 	{
 		$row = mysqli_fetch_array($res);
 		$r[0] = $row["ID"];
-		$r[1] = $row["Nombre"];
-		$r[2] = $row["Apellido"];
 		return $r;
 	}
 	else

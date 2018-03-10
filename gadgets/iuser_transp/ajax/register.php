@@ -1,9 +1,9 @@
-<? $tipo = 1; $path = "../"; include("../../../func/funciones.php");
+<?php  $tipo = 1; $path = "../"; include("../../../func/funciones.php");
 
 $i = 1;
-while(isset($_POST["iuser_".$i]))
+while(isset($_POST["iusert_".$i]))
 {
-	$values[$i] =trim(revisarString($_POST["iuser_".$i]));
+	$values[$i] =trim(revisarString($_POST["iusert_".$i]));
 	$i++;
 }
 $cual = 0;
@@ -31,8 +31,7 @@ $cual = 0;
 	$datos[$cual] = ($values[20]);$cual++;
 	$campos[$cual] = 'Status';
 	$datos[$cual] = 'ACTI';$cual++;
-	$campos[$cual] = 'Codigo';
-	$datos[$cual] = 'Falta';$cual++;
+
 	$error = insertar($campos,$datos,"transportista_2");
 	$_SESSION["NumTransportista"]  = $error[1];
 

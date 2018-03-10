@@ -1,6 +1,6 @@
-<? include("comun/htop.php");
+<?php  include("comun/htop.php");
 $titulo = "Del Campo a la Ciudad"?>
-<? include("comun/header.php"); ?>
+<?php  include("comun/header.php"); ?>
 </head>
 <body>
   <div id="wrapper" class="container">
@@ -44,4 +44,4 @@ $titulo = "Del Campo a la Ciudad"?>
         </div>
       </div>
     </section>
-    <? include("comun/footer.php"); ?>
+    <?php  include("comun/footer.php"); ?>

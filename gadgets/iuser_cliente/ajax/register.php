@@ -1,4 +1,4 @@
-<? $tipo = 1; $path = "../"; include("../../../func/funciones.php");
+<?php  $tipo = 1; $path = "../"; include("../../../func/funciones.php");
 
 $icr = 1;
 while(isset($_POST["iuserc_".$icr]))

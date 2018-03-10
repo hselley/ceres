@@ -1,4 +1,4 @@
-<? $tipo = 1; $path = "../"; include("../../../func/funciones.php");
+<?php  $tipo = 1; $path = "../"; include("../../../func/funciones.php");
 
 $i = 1;
 while(isset($_POST["loginc_".$i]))
@@ -14,6 +14,6 @@ while(isset($_POST["loginc_".$i]))
 		$_SESSION['NumCliente']=$r3["ID"];// Initializing Session
 		echo("OK");
 	} else {?>
-		<?echo "ERROR: El usuario y/o contraseña no son correctos"?>
-	<?}
+		<?php echo ("ERROR: El usuario y/o contraseña no son correctos");?>
+	<?php }
 ?>

@@ -1,16 +1,10 @@
 <section class="main-content">
   <div class="row">
     <div class="col-sm-12">
-      <div class="col-sm-3" align="center">
-        <img id='barcode'
-              src="https://api.qrserver.com/v1/create-qr-code/?data=localhost/~osos04/es/productor&amp;size=100x100"
-              alt=""
-              title="QR CODE"
-              width="150"
-              height="150"/>
-        <br>
+      <div class="col-sm-1" align="center">
+
       </div>
-      <div class="col-sm-9">
+      <div class="col-sm-10">
         <div class="accordion" id="accordion2">
 
           <div class="accordion-group">
@@ -20,7 +14,7 @@
             <div id="collapseOne" class="accordion-body in collapse">
               <div class="accordion-inner">
                 <div class="row-fluid">
-                  <?
+                  <?php 
                     $id= $_SESSION["NumTransportista"];
                     $res = seleccionar("SELECT * FROM transportista_2 WHERE ID='".$id."'");
                     $row = mysqli_fetch_array($res);
@@ -51,7 +45,7 @@
             <div id="collapseTwo" class="accordion-body in collapse">
               <div class="accordion-inner">
                 <div class="row-fluid">
-                  <?
+                  <?php 
                     $idv= $_SESSION["NumVehiculo"];
                     $res = seleccionar("SELECT * FROM vehiculo_2 WHERE ID='".$idv."'");
                     $row = mysqli_fetch_array($res);
@@ -100,7 +94,7 @@
             <div id="collapseFour" class="accordion-body in collapse">
               <div class="accordion-inner">
                 <div class="row-fluid">
-                  <?echo "Aquí se publicarán los envios pendientes que tenga el transportista.";?>
+                  <?php echo "Aquí se publicarán los envios pendientes que tenga el transportista.";?>
                   <?php /*
                     $query = seleccionar("SELECT * FROM producto WHERE Productor='".$_SESSION['NumProductor']."' AND Oferta_Fin >='".date('Y-m-d')."' AND Cantidad>0");
                     $inventario = "<table id=\"tablita\" class=\"table table-responsive\"><thead>
@@ -139,7 +133,7 @@
             <div id="collapseFive" class="accordion-body in collapse">
               <div class="accordion-inner">
                 <div class="row-fluid">
-                  <?echo "Aquí se pondrán los envios que el transportista haya completado.";?>
+                  <?php echo "Aquí se pondrán los envios que el transportista haya completado.";?>
                 </div>
               </div>
             </div>
@@ -152,7 +146,7 @@
             <div id="collapseSix" class="accordion-body in collapse">
               <div class="accordion-inner">
                 <div class="row-fluid">
-                  <? echo "Aquí se mostrará el promedio de las calificaciones que los clientes han dado al servicio de transporte."?>
+                  <?php  echo "Aquí se mostrará el promedio de las calificaciones que los clientes han dado al servicio de transporte."?>
                 </div>
               </div>
             </div>

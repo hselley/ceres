@@ -1,16 +1,10 @@
 <section class="main-content">
   <div class="row">
     <div class="col-sm-12">
-      <div class="col-sm-3" align="center">
-        <img id='barcode'
-              src="https://api.qrserver.com/v1/create-qr-code/?data=localhost/~osos04/es/productor&amp;size=100x100"
-              alt=""
-              title="QR CODE"
-              width="150"
-              height="150"/>
-        <br>
+      <div class="col-sm-1" align="center">
+
       </div>
-      <div class="col-sm-9">
+      <div class="col-sm-10">
         <div class="accordion" id="accordion2">
 
           <div class="accordion-group">
@@ -20,7 +14,7 @@
             <div id="collapseOne" class="accordion-body in collapse">
               <div class="accordion-inner">
                 <div class="row-fluid">
-                  <?
+                  <?php 
                     $id= $_SESSION["NumProductor"];
                     $res = seleccionar("SELECT * FROM productor_2 WHERE ID='".$id."'");
                     $row = mysqli_fetch_array($res);
@@ -55,32 +49,37 @@
                 <div class="row-fluid">
                   <?php
                     $query = seleccionar("SELECT * FROM producto WHERE Productor='".$_SESSION['NumProductor']."' AND Oferta_Fin >='".date('Y-m-d')."' AND Cantidad>0");
-                    $inventario = "<table id=\"tablita\" class=\"table table-responsive\"><thead>
-                    <tr>
-                    <th>CÓDIGO</th>
-                    <th>PRODUCTO</th>
-                    <th></th>
-                    <th>CARACTERÍSTICAS</th>
-                    <th>PRECIO</th>
-                    <th>FIN DE OFERTA</th>
-                    <th>CANTIDAD DISPONIBLE</th>
-                    <th>EMPAQUE</th>
-                    </tr></thead><tbody>";
-                    while($row = mysqli_fetch_array($query)) {
-                      $inventario = $inventario . "<tr>";
-                      $inventario = $inventario . "<td>" . $row['ID'] . "</td>";
-                      $inventario = $inventario . "<td>" . $row['Nombre'] . "</td>";
-                      $inventario = $inventario . "<td>" . $row['Tipo'] . "</td>";
-                      $inventario = $inventario . "<td>" . $row['Caracteristicas'] . "</td>";
-                      $inventario = $inventario . "<td>" . $row['Precio'] . "</td>";
-                      $inventario = $inventario . "<td>" . $row['Oferta_fin'] . "</td>";
-                      $inventario = $inventario . "<td>" . $row['Cantidad'] . "</td>";
-                      $inventario = $inventario . "<td>" . $row['Empaque'] . "</td>";
-                      $inventario = $inventario . "</tr>";
-                    }
-                    $inventario = $inventario . "</tbody></table>";
+                    if (mysqli_num_rows($query)>0){
+                      $inventario = "<table id=\"tablita\" class=\"table table-responsive\"><thead>
+                      <tr>
+                      <th>CÓDIGO</th>
+                      <th>PRODUCTO</th>
+                      <th></th>
+                      <th>CARACTERÍSTICAS</th>
+                      <th>PRECIO</th>
+                      <th>FIN DE OFERTA</th>
+                      <th>CANTIDAD DISPONIBLE</th>
+                      <th>EMPAQUE</th>
+                      </tr></thead><tbody>";
+                      while($row = mysqli_fetch_array($query)) {
+                        $inventario = $inventario . "<tr>";
+                        $inventario = $inventario . "<td>" . $row['ID'] . "</td>";
+                        $inventario = $inventario . "<td>" . $row['Nombre'] . "</td>";
+                        $inventario = $inventario . "<td>" . $row['Tipo'] . "</td>";
+                        $inventario = $inventario . "<td>" . $row['Caracteristicas'] . "</td>";
+                        $inventario = $inventario . "<td>" . $row['Precio'] . "</td>";
+                        $inventario = $inventario . "<td>" . $row['Oferta_fin'] . "</td>";
+                        $inventario = $inventario . "<td>" . $row['Cantidad'] ." ". $row['Medida'] ."</td>";
+                        $inventario = $inventario . "<td>" . $row['Empaque'] . "</td>";
+                        $inventario = $inventario . "</tr>";
+                      }
+                      $inventario = $inventario . "</tbody></table>";
 
-                    echo $inventario;?>
+                      echo $inventario;
+                    }else{
+                      echo ("No hay artículos ofertados en este momento.");
+                    }
+                    ?>
                 </div>
               </div>
             </div>
@@ -177,7 +176,7 @@
             <div id="collapseFour" class="accordion-body in collapse">
               <div class="accordion-inner">
                 <div class="row-fluid">
-                  <? echo "Aquí se mostrarán las órdenes levantadas por los clientes"?>
+                  <?php  echo "Aquí se mostrarán las órdenes levantadas por los clientes"?>
                 </div>
               </div>
             </div>

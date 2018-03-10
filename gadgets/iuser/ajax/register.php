@@ -1,4 +1,4 @@
-<? $tipo = 1; $path = "../"; include("../../../func/funciones.php");
+<?php  $tipo = 1; $path = "../"; include("../../../func/funciones.php");
 
 $i = 1;
 while(isset($_POST["iuser_".$i]))
@@ -33,8 +33,7 @@ $cual = 0;
 	$datos[$cual] = ($values[13]);$cual++;
 	$campos[$cual] = 'Status';
 	$datos[$cual] = 'ACTI';$cual++;
-	$campos[$cual] = 'Codigo';
-	$datos[$cual] = '$values[3]';$cual++;
+
 	$error = insertar($campos,$datos,"productor_2");
 	$_SESSION["NumProductor"]  = $error[1];
 	echo("OK");

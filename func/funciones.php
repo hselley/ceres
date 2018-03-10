@@ -1,4 +1,4 @@
-<?
+<?php 
 session_start();
 error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
 date_default_timezone_set ('America/Mexico_City');
@@ -14,6 +14,8 @@ $usuariosHabilitar = true;
 if ($usuariosHabilitar == true)
 {
 	include($ruta_home."/gadgets/iuser/iuser_func.php");
+	include($ruta_home."/gadgets/iuser_cliente/iuser_func.php");
+	include($ruta_home."/gadgets/iuser_transp/iuser_func.php");
 }
 if(file_exists("code_behind/$page"))
 {

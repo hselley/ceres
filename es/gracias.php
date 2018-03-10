@@ -1,6 +1,6 @@
-<? include("../es/comun/htop.php");
+<?php  include("../es/comun/htop.php");
 $titulo = "Registro Exitoso"?>
-<? include("../es/comun/header.php");
+<?php  include("../es/comun/header.php");
 ?>
 </head>
 <body>

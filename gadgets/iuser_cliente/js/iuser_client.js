@@ -1,4 +1,6 @@
 // JavaScript Document
+
+//Inicio de Sesión de Cliente
 function validarloginc()
 {
 	var tc_login = new Array();
@@ -47,6 +49,7 @@ function loginc()
 
 }
 
+//Registro de Clientes a la Plataforma
 function arregloRegistroC()
 {
 	var textos = new Array();
@@ -54,7 +57,6 @@ function arregloRegistroC()
 		textos[i] = "Favor de ingresar su razón social"; i++;
 		textos[i] = "Favor de ingresar su RFC"; i++;
 		textos[i] = "Favor de ingresar un correo electrónico válido"; i++;
-		//textos[i] = "Su correo electrónico ya está registrado. Inicie Sesión."; i++;
 		textos[i] = "Favor de ingresar su contraseña"; i++;
 		textos[i] = "Su contraseña no coincide en Reintroduce tu Contraseña"; i++;
 		textos[i] = "Favor de ingresar su teléfono"; i++;
@@ -96,9 +98,6 @@ function validarRegistroC()
 			if (!validateEmail("iuserc_" + obl_c[ic], al_c[cual_c]))
 				return;
 			cual_c++;
-			//if (!validateExEmail("iuserc_2", al_c[cual_c]))
-				//return;
-			//cual_c++;
 		}else if(ic==4){
 			if (!validarCoincidencia("iuserc_4", "iuserc_5", al_c[cual_c]))
 				return;
@@ -127,24 +126,7 @@ function validarRegistroC()
 		return;
 	cual_c++;
 	var i=1;
-		registerClient();
-}
-
-function validateExEmail(idf, textof) {
-	var emailf= $(idf).val();
-	$.ajax({
-		type:'POST',
-		url:'../gadgets/iuser_cliente/ajax/ajaxData.php',
-		data:'em='+emailf,
-	}).done(function (response) {
-		if (response == "REPEAT") {
-			idf.focus();alerta1(textof);return false;
-		}else{
-			return true;
-		}
-	}).fail(function () {
-		alerta1("no sirve");
-	});
+		ajaxRegistroC();
 }
 
 function registerClient()
@@ -175,6 +157,107 @@ function registerClient()
 
 }
 
+function ajaxRegistroC(){
+	//alert("e");
+	document.getElementById("iuser_waiting").style.display="";
+	var formObj2 = $("#RClient");
+	    var formData2 = new FormData(document.getElementById('RClient'));
+	    $.ajax({
+	        url: '../gadgets/iuser_cliente/ajax/email.php',
+	    type: 'POST',
+	        data:  formData2,
+	    mimeType:"multipart/form-data",
+	    contentType: false,
+	        cache: false,
+	        processData:false
+	}).done(function (result) {
+	//document.getElementById("iuser_waiting").style.display="none";
+	if (result == "OK")
+	{
+	registerClient();
+	}
+	else
+	{
+	alerta1(result);
+	//document.getElementById("iuser_2").focus();
+	}
+	}).fail(function () {
+
+	});
+}
+
+//Agreagar al Carrito de COMPRAS
+function validarAddCart()
+{
+	var ac_text = new Array();
+	ac_text[0] = "Favor de ingresar seleccionar un transportista disponible para entrega";
+
+	if (!validarSeleccion("cadd_2", ac_text[0]))
+		return;
+
+	AddToCart();
+}
+
+function AddToCart()
+{
+	document.getElementById("iuser_waiting").style.display="";
+	var formObjCart = $("#ACart");
+	var formDataCart = new FormData(document.getElementById('ACart'));
+	$.ajax({
+		url: '../gadgets/iuser_cliente/ajax/addcart.php',
+	  type: 'POST',
+	  data:  formDataCart,
+	  mimeType:"multipart/form-data",
+	  contentType: false,
+	  cache: false,
+	  processData:false
+	}).done(function (carro) {
+	//document.getElementById("iuser_waiting").style.display="none";
+		if (carro == "OK")
+		{
+			//window.location=window.location;
+		}
+		else
+		{
+			alerta1(carro);
+			//document.getElementById("iuser_2").focus();
+		}
+	}).fail(function () {
+
+	});
+}
+
+//Modificación del Carrito de COMPRAS
+function updateCart()
+{
+	document.getElementById("iuser_waiting").style.display="";
+	var formObjCart = $("#MCart");
+	var formDataCart = new FormData(document.getElementById('MCart'));
+	$.ajax({
+		url: '../gadgets/iuser_cliente/ajax/modcart.php',
+	  type: 'POST',
+	  data:  formDataCart,
+	  mimeType:"multipart/form-data",
+	  contentType: false,
+	  cache: false,
+	  processData:false
+	}).done(function (carro) {
+	//document.getElementById("iuser_waiting").style.display="none";
+		if (carro == "OK")
+		{
+			//window.location=window.location;
+		}
+		else
+		{
+			alerta1(carro);
+			//document.getElementById("iuser_2").focus();
+		}
+	}).fail(function () {
+
+	});
+}
+
+//Cierre de Sesión del Cliente
 function ajaxLogOut()
 {
 	// Create a function that will receive data sent from the server

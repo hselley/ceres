@@ -1,13 +1,13 @@
-<? include("comun/htop.php");
+<?php  include("comun/htop.php");
 $cliente = "1";
 $transp = "0";
 $productor = "0";
 //echo ($_SESSION["NumUsuario"]);
 $titulo = "Vista del Producto"?>
-<? include("comun/header.php"); ?>
+<?php  include("comun/header.php"); ?>
 </head>
 <body onload="document.getElementById('iuser_waiting').style.display='none'">
-  <?
+  <?php 
   if (isset($_SESSION['NumCliente'])) { ?>
     <div id="wrapper" class="container">
       <br>
@@ -15,11 +15,11 @@ $titulo = "Vista del Producto"?>
         <h1 style="color: rgb(49, 68, 30);">CERES - Del Campo a la Ciudad</h1>
       </section>
       <section class="row">
-        <? include ('../gadgets/iuser_cliente/sc_productodetalle.php');
+        <?php  include ('../gadgets/iuser_cliente/sc_productodetalle.php');
         ?>
       </section>
 
-<?  }else{ ?>
+<?php   }else{ ?>
       <div id="wrapper" class="container">
         <br>
         <div class="jumbotron text-center">
@@ -27,8 +27,8 @@ $titulo = "Vista del Producto"?>
         </div>
         <div class="container">
           <div class="row">
-            <? include ('../gadgets/iuser_cliente/sc_register.php');?>
+            <?php  include ('../gadgets/iuser_cliente/sc_register.php');?>
           </div>
         </div>
-    <?}?>
-<? include("comun/footer.php"); ?>
+    <?php } ?>
+<?php  include("comun/footer.php"); ?>

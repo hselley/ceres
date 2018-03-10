@@ -11,7 +11,7 @@ function validarlogin()
 	cual_login = 0;
 	for(var i = 0; i < oi_login; i++)
 	{
-			if (!validarVacio("login_" + obl_login[i],t_login[cual_login]))
+			if (!validarVacio("loginp_" + obl_login[i],t_login[cual_login]))
 				return;
 
 			cual_login++;
@@ -22,8 +22,8 @@ function validarlogin()
 function loginpr()
 {
 		//document.getElementById("iuser_waiting").style.display="";
-	 var formObj = $("#form4");
-    var formData = new FormData(document.getElementById('form4'));
+	 var formObj = $("#LIP");
+    var formData = new FormData(document.getElementById('LIP'));
     $.ajax({
         url: '../gadgets/iuser/ajax/loginproductor.php',
     type: 'POST',
@@ -35,7 +35,7 @@ function loginpr()
 	}).done(function (response) {
 		//document.getElementById("iuser_waiting").style.display="none";
 			if (response == "OK") {
-			//window.location=window.location;
+			window.location=window.location;
 			location.reload();
 			}
 			else
@@ -113,7 +113,7 @@ function validarRegistro()
 		return;
 	cual++;
 
-		registerUser();
+		ajaxRegistro();
 }
 
 function ajaxLogOut()
@@ -137,6 +137,36 @@ function ajaxLogOut()
 	document.getElementById("iuser_waiting").style.display="";
 	ajaxRequest.open("GET", "../gadgets/iuser/ajax/salir.php", true);
 	ajaxRequest.send(null);
+}
+
+function ajaxRegistro(){
+	//alert("e");
+	document.getElementById("iuser_waiting").style.display="";
+	var formObj1 = $("#form3");
+	    var formData1 = new FormData(document.getElementById('form3'));
+	    $.ajax({
+	        url: '../gadgets/iuser/ajax/email.php',
+	    type: 'POST',
+	        data:  formData1,
+	    mimeType:"multipart/form-data",
+	    contentType: false,
+	        cache: false,
+	        processData:false
+	}).done(function (respuesta) {
+
+	//document.getElementById("iuser_waiting").style.display="none";
+	if (respuesta == "OK")
+	{
+	registerUser();
+	}
+	else
+	{
+	alerta1(respuesta);
+	//document.getElementById("iuser_2").focus();
+	}
+	}).fail(function () {
+
+	});
 }
 
 function registerUser()
@@ -206,6 +236,7 @@ function validarRegistroP()
 				return document.getElementById("prod_" + obl_prod[i3]).focus();;
 			cual_prod++;
 	}
+		//validateFileUpload($files, $txt);
 
 		registerProductos();
 }
