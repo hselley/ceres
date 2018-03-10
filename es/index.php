@@ -19,7 +19,7 @@ $titulo = "Del Campo a la Ciudad"?>
             <div class="col-sm-4">
               <div class="service">
                 <div class="responsive">
-                  <img src="feature_img_1.png" alt="" onclick="window.location='productor'"/>
+                  <img src="feature_img_1.png" alt="" onclick="window.location='productor.php'"/>
                   <h4>INGRESA <strong>PRODUCTORES</strong></h4>
                 </div>
               </div>
@@ -27,7 +27,7 @@ $titulo = "Del Campo a la Ciudad"?>
             <div class="col-sm-4">
               <div class="service">
                 <div class="responsive">
-                  <img src="feature_img_2.png" alt="" onclick="window.location='transportista'"/>
+                  <img src="feature_img_2.png" alt="" onclick="window.location='transportista.php'"/>
                   <h4>INGRESA <strong>TRANSPORTISTAS</strong></h4>
                 </div>
               </div>
@@ -35,7 +35,7 @@ $titulo = "Del Campo a la Ciudad"?>
             <div class="col-sm-4">
               <div class="service">
                 <div class="responsive">
-                  <img src="feature_img_3.png" alt="" onclick="window.location='cliente'"/>
+                  <img src="feature_img_3.png" alt="" onclick="window.location='cliente.php'"/>
                   <h4>INGRESA <strong>CLIENTES</strong></h4>
                 </div>
               </div>

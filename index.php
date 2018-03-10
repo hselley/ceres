@@ -8,7 +8,7 @@
 <title>CERES - Del Campo a la Ciudad</title>
 <meta name="Description" content="XX" />
 <meta name="Keywords" content="XX" />
-<script>window.location='es/index';</script>
+<script>window.location='es/index.php';</script>
 </head>
 <body onLoad="precargar()">
 </body>
