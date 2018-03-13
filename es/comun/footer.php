@@ -3,11 +3,11 @@
     <div class="col-sm-3">
       <h4>Navegación</h4>
       <ul class="nav">
-        <?php  if($_SESSION['NumCliente']==""&&$_SESSION['NumTransportista']==""&&$_SESSION['NumProductor']==""){
+        <?php if($_SESSION['NumCliente']==""&&$_SESSION['NumTransportista']==""&&$_SESSION['NumProductor']==""){
           echo '<li><a onclick="window.location=\'index.php\'">Inicio</a></li>';
         }?>
         <li><a href="./about.php">Acerca de</a></li>
-        <li><a href="./contact.php">Contáctanos</a></li>
+        <li><a href="mailto:administrador@ceresapp.com.mx">Contáctanos</a></li>
       </ul>
     </div>
     <div class="col-sm-3">
@@ -34,7 +34,8 @@
       ?>
     </div>
     <div class="col-sm-6">
-      <p>CERES Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p>El proyecto “CERES: del campo a la ciudad” busca impulsar el crecimiento agropecuario de
+        los productores en México, eficientar el transporte y ofrecer precios atractivos al cliente.</p>
       <br/>
     </div>
   </div>

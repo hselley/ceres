@@ -1,4 +1,4 @@
-<?php  $tipo = 1; $path = "../"; include("../../../func/funciones.php");
+<?php $tipo = 1; $path = "../"; include("../../../func/funciones.php");
 
 $i = 1;
 while(isset($_POST["logint_".$i]))

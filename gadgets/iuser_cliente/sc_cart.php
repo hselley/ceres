@@ -5,9 +5,17 @@
       <span>
           <?php echo $messlog; ?>
       </span>
-      <?php 
-      $query = seleccionar("SELECT c.ID_Producto, p.Nombre, p.Tipo, p.Foto, c.CCantidad, p.Precio, p.Cantidad, p.Medida
-                  FROM producto p, carrito c WHERE c.ID_Cliente=".$_SESSION['NumCliente']." AND p.ID=c.ID_Producto ORDER BY c.ID_Producto");
+      <?php
+      $qelim = seleccionar("SELECT c.ID_Producto, p.Nombre, p.Tipo, p.Foto, c.CCantidad, p.Precio, p.Cantidad, p.Medida
+                  FROM producto p, carrito c WHERE c.ID_Cliente=".$_SESSION['NumCliente']." AND p.ID=c.ID_Producto AND p.Oferta_fin<'". date("Y-m-d") ."' ORDER BY c.ID_Producto");
+      $numelim = mysqli_num_rows($qelim);
+      if($numelim>0){
+        while($relim = mysqli_fetch_array($qelim)) {
+          eliminarcart("carrito", $_SESSION['NumCliente'], $relim['ID_Producto']);
+        }
+      }
+      $query = seleccionar("SELECT c.ID_Producto, p.Nombre, p.Caracteristicas, p.Tipo, p.Foto, c.CCantidad, p.Precio, p.Cantidad, p.Medida
+                  FROM producto p, carrito c WHERE c.ID_Cliente=".$_SESSION['NumCliente']." AND p.ID=c.ID_Producto AND p.Oferta_fin>='". date("Y-m-d") ."' ORDER BY c.ID_Producto");
       $numrows = mysqli_num_rows($query);
       if($numrows>0){
 
@@ -16,7 +24,8 @@
             <tr>
               <th>Seleccionar</th>
               <th>Imagen</th>
-              <th>Nombre del Producto</th>
+              <th>Producto</th>
+              <th>Descripcion</th>
               <th>Cantidad</th>
               <th>Precio Unitario</th>
               <th>Total</th>
@@ -28,20 +37,23 @@
         while($row2 = mysqli_fetch_array($query)) {
           $idp = $row2['ID_Producto'];
           $nombre = $row2['Nombre']." ".$row2['Tipo'];
-          $foto = "platano.jpeg";
+          $descrip = $row2['Caracteristicas'];
+          $foto = $row2['Foto'];
           $cantidad = $row2['CCantidad'];
           $precio = $row2['Precio'];
           $stock = $row2['Cantidad'];
           $pfinal = $pfinal + ($precio*$cantidad);
           $rcart = $rcart . '<td><input type="radio" name="cart_1" id="cart_1" value="'.$idp.'" class="input-xlarge"></td>
-            <td><a href="producto_detalle.php?param='.$idp.'"><img alt="'.$foto.'" src="img/'.$foto.'" width="100"></a></td>
+            <td><a href="producto_detalle.php?param='.$idp.'"><img alt="'.$foto.'" src="producto/'.$foto.'" width="100"></a></td>
             <td>'.$nombre.'</td>
-            <td><input name="cart_2" id="cart_2" type="number" min="1" max="'.$stock.'"class="span1" placeholder="" value="'.$cantidad.'">'.$row2["Medida"].'</td>
+            <td>'.$descrip.'</td>
+            <td><input name="'.$idp.'" id="'.$idp.'" type="number" min="1" max="'.$stock.'"class="span1" placeholder="" value="'.$cantidad.'">'.$row2["Medida"].'</td>
             <td>$'.$precio.'</td>
             <td>$'.number_format((float)$precio*$cantidad, 2, '.', '').'</td><tr>';
         }
         mysqli_close($connection);
         $rcart = $rcart . '
+                      <td>&nbsp;</td>
                       <td>&nbsp;</td>
                       <td>&nbsp;</td>
                       <td>&nbsp;</td>
@@ -60,10 +72,10 @@
     						</p>
                 <hr/>
                 <p class="buttons center">
-                  <button class="btn" form="cartmodif" OnClick=updateCart() name="submit_upd" value="submit_upd">Actualizar</button>
-    							<button class="btn" form="cartmodif" OnClick=deleteCart() name="submit_elim" value="submit_elim">Eliminar</button>
+                  <button class="btn btn-success" form="MCart" OnClick=updateCart()>Actualizar</button>
+    							<button class="btn btn-success" form="MCart" OnClick=deleteCart()>Eliminar</button>
 
-    							<button class="btn btn-inverse" OnClick=checkout()>Ir a Checkout</button>
+    							<button class="btn btn-success" OnClick=window.location="checkout.php">Ir a Checkout</button>
     						</p>';
         echo $rcart;
       }else{

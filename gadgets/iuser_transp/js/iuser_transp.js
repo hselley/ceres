@@ -240,5 +240,65 @@ function registerUserT()
 	}).fail(function () {
 
 	});
+}
 
+function marcarEntregado(idpe)
+{
+		//document.getElementById("iuser_waiting").style.display="";
+		var algo = idpe;
+    $.ajax({
+			type:'POST',
+			url:'../gadgets/iuser_transp/ajax/entregar.php',
+			data:'id='+algo,
+	}).done(function (response) {
+		document.getElementById("iuser_waiting").style.display="none";
+			if (response == "OK") {
+				window.location="transportista";
+			}else{
+				alerta1(response);
+			}
+	}).fail(function () {
+
+	});
+
+}
+
+//calificar a los demás
+function verificarCalif(idp){
+	var calif_text = new Array();
+	calif_text[1] = "Favor de escribir un comentario constructivo para Productor";
+	calif_text[2] = "Favor de escribir un comentario constructivo para Cliente";
+
+	if (!validarVacio("c1_6",calif_text[1]))
+		return;
+	if (!validarVacio("c2_6",calif_text[2]))
+		return;
+
+	calificar(idp);
+}
+
+function calificar(id){
+	//alerta1(id);
+	var algo = id;
+	var formObjCalif = $("#Calif");
+	var formDataCalif = new FormData(document.getElementById('Calif'));
+	formDataCalif.append("id", algo);
+	$.ajax({
+		type:'POST',
+		url:'../gadgets/iuser_transp/ajax/calificar.php',
+		data: formDataCalif,
+		mimeType:"multipart/form-data",
+		contentType: false,
+	  cache: false,
+	  processData:false
+}).done(function (response) {
+	document.getElementById("iuser_waiting").style.display="none";
+		if (response == "OK") {
+			window.location="cliente";
+		}else{
+			alerta1(response);
+		}
+}).fail(function () {
+
+});
 }

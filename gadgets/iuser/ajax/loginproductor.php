@@ -1,4 +1,4 @@
-<?php  $tipo = 1; $path = "../"; include("../../../func/funciones.php");
+<?php $tipo = 1; $path = "../"; include("../../../func/funciones.php");
 
 $i = 1;
 while(isset($_POST["loginp_".$i]))
@@ -13,6 +13,6 @@ while(isset($_POST["loginp_".$i]))
 		$_SESSION['NumProductor']=$r["ID"];// Initializing Session
 		echo("OK");
 	} else {?>
-		<?php echo ("ERROR: El usuario y/o contraseña no son correctos");?>
+		<?phpecho ("ERROR: El usuario y/o contraseña no son correctos");?>
 	<?php }
 ?>

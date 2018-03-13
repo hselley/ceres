@@ -783,6 +783,11 @@ section.our_client .row{
 		overflow-y: hidden;
 }
 
+#tablita2 {
+		display: block;
+		overflow-y: hidden;
+}
+
 #myDIV {
     overflow: auto;
 }
@@ -846,6 +851,10 @@ section.our_client .row{
 .bar-2 {width: 4%; height: 18px; background-color: #ff9800;}
 .bar-1 {width: 15%; height: 18px; background-color: #f44336;}
 
+/* ACCORDION */
+.accordion{margin-bottom:20px}.accordion-group{margin-bottom:2px;border:1px solid #e5e5e5;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;}.accordion-heading{border-bottom:0;}.accordion-heading .accordion-toggle{display:block;padding:8px 15px}.accordion-toggle{cursor:pointer}.accordion-inner{padding:9px 15px;border-top:1px solid #e5e5e5}
+.collapse{position:relative;height:0;overflow:hidden;-webkit-transition:height .35s ease;-moz-transition:height .35s ease;-o-transition:height .35s ease;transition:height .35s ease}.collapse.in{height:auto}.close{float:right;font-size:20px;font-weight:bold;line-height:20px;color:#000;text-shadow:0 1px 0 #fff;opacity:.2;filter:alpha(opacity=20)}
+
 /* Responsive layout - make the columns stack on top of each other instead of next to each other */
 @media (max-width: 400px) {
     .side, .middle {
@@ -855,4 +864,25 @@ section.our_client .row{
     .right {
         display: none;
     }
+}
+
+@media (max-width: 979px) and (min-width: 768px) {
+
+    .navbar .container {
+        width: 724px!important;
+    }
+
+}
+
+@media (max-width: 767px) {
+
+    .navbar-inner {
+        padding:0 0 10px 0px!important;
+    }
+
+    .btn.btn-navbar {
+        margin-top:20px;
+    }
+
+
 }

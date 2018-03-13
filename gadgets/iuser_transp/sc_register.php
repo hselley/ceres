@@ -49,10 +49,10 @@
   	 <label for="apellido">Estado*:</label>
   	 <select class="form-control" name="iusert_8" id="iusert_8">
        <option value="-1">Seleccionar...</option>
-  		 <?php  $res = seleccionar("SELECT DISTINCT idEstado, estado FROM sepomex ORDER BY estado");
+  		 <?php $res = seleccionar("SELECT DISTINCT idEstado, estado FROM sepomex ORDER BY estado");
   		 		while ($row = mysqli_fetch_array($res)){?>
-  					<option value="<?php  echo $row["idEstado"]?>"><?php  echo $row["estado"]?></option>
-  				<?php  } ?>
+  					<option value="<?php echo $row["idEstado"]?>"><?php echo $row["estado"]?></option>
+  				<?php } ?>
   		</select>
    </div>
    <div class="form-group">
@@ -88,10 +88,10 @@
      <label for="apellido">Marca*:</label>
      <select class="form-control" name="iusert_16" id="iusert_16">
        <option value="-1">Seleccionar...</option>
-  		 <?php  $res2 = seleccionar("SELECT * FROM marcas_vehiculo ORDER BY Marca");
+  		 <?php $res2 = seleccionar("SELECT * FROM marcas_vehiculo ORDER BY Marca");
   		 		while ($row2 = mysqli_fetch_array($res2)){?>
-  					<option value="<?php  echo $row2["Marca"]?>"><?php  echo $row2["Marca"]?></option>
-  				<?php  } ?>
+  					<option value="<?php echo $row2["Marca"]?>"><?php echo $row2["Marca"]?></option>
+  				<?php } ?>
   	 </select>
    </div>
    <div class="form-group">

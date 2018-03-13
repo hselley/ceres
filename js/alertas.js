@@ -31,6 +31,22 @@ function validarSeleccion(nombre, texto)
 	return true;
 }
 
+function validarRadio(nombre, texto)
+{
+	var x= document.getElementById(nombre);
+	var checked=false;
+	for(i=0;i<x.length;i++){
+		if(x[i].checked)
+			checked = true;
+	}
+	if (checked == false){
+		alerta1(texto);
+		return false;
+	}
+	return true;
+}
+
+
 function validarChecked(nombre, texto)
 {
 	var x= document.getElementById(nombre);

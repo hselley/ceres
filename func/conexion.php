@@ -1,4 +1,4 @@
-<?php 
+<?php
 /* VARIABLES
 REGRESA LA CONEXION A LA BAE DE DATOS DEPENDIENDO DE LA VARIABLE $DB */
 
@@ -91,7 +91,7 @@ function actualizar($campos, $datos, $tabla, $id, $revisar = false)
 				$queryString= $queryString.$key."='".$datos[$i]."', ";
 			$i = $i +1;
 		}
-		$queryString = substr($queryString, 0, strlen($queryString)-2)." where id = ".$id;
+		$queryString = substr($queryString, 0, strlen($queryString)-2)." where ID = ".$id;
 		//echo($queryString);
 		$string_error[0] = correr_query($queryString);
 		return $string_error;
@@ -120,7 +120,62 @@ function actualizarcart($campos, $datos, $tabla, $idu, $idp, $revisar = false)
 				$queryString= $queryString.$key."='".$datos[$i]."', ";
 			$i = $i +1;
 		}
-		$queryString = substr($queryString, 0, strlen($queryString)-2)." where ID_Cliente = ".$idu;
+		$queryString = substr($queryString, 0, strlen($queryString)-2)." where ID_Cliente = ".$idu." AND ID_Producto = ".$idp;
+		//echo($queryString);
+		$string_error[0] = correr_query($queryString);
+		return $string_error;
+	}
+	catch (Exception $e)
+	{
+		$string_error[0] = $e;
+		return $string_error;
+	}
+}
+
+function actualizarfoto( $dato, $idp, $revisar = false)
+{
+	$string_error[0] = "";
+	try
+	{
+		$queryString = "update producto set Foto='".$dato."' where ID = ".$idp;
+		//echo($queryString);
+		$string_error[0] = correr_query($queryString);
+		return $string_error;
+	}
+	catch (Exception $e)
+	{
+		$string_error[0] = $e;
+		return $string_error;
+	}
+}
+
+function eliminarcart($tabla, $idu, $idp, $revisar = false)
+{
+	$string_error[0] = "";
+	try
+	{
+		$queryString = "DELETE FROM ".$tabla;
+
+		$queryString = $queryString." WHERE ID_Cliente = ".$idu." AND ID_Producto = ".$idp;
+		//echo($queryString);
+		$string_error[0] = correr_query($queryString);
+		return $string_error;
+	}
+	catch (Exception $e)
+	{
+		$string_error[0] = $e;
+		return $string_error;
+	}
+}
+
+function eliminar($tabla, $idp, $revisar = false)
+{
+	$string_error[0] = "";
+	try
+	{
+		$queryString = "DELETE FROM producto";
+
+		$queryString = $queryString." WHERE ID = ".$idp;
 		//echo($queryString);
 		$string_error[0] = correr_query($queryString);
 		return $string_error;

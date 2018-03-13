@@ -1,4 +1,4 @@
-<?php  $tipo = 1; $path = "../"; include("../../../func/funciones.php");
+<?php $tipo = 1; $path = "../"; include("../../../func/funciones.php");
 
 $query= seleccionar("SELECT * FROM carrito WHERE ID_Cliente=".$_SESSION['NumCliente']." AND ID_Producto=".$_SESSION['ProductoAdd']);
 if(mysqli_num_rows($query)==0){

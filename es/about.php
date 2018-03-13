@@ -1,6 +1,6 @@
-<?php  include("../es/comun/htop.php");
+<?php include("../es/comun/htop.php");
 $titulo = "Acerca de"?>
-<?php  include("../es/comun/header.php");
+<?php include("../es/comun/header.php");
 ?>
 </head>
 <body>
@@ -58,12 +58,25 @@ $titulo = "Acerca de"?>
             </a>
           </div>
         </div>
-        <div class="col-sm-7" align="center">
-          <span><strong>CERES - Del Campo a la Ciudad</strong>  es una iniciativa de CONACYD orem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum..</span>
+        <div class="col-sm-7">
+          <p>El proyecto <strong>CERES - Del Campo a la Ciudad</strong> es un esfuerzo que busca impulsar el
+            crecimiento agropecuario de los productores en México. Este objetivo pretende alcanzarse mediante la
+            creación de un vínculo directo entre los productores. Los transportistas y los distribuidores
+            de los productos agropecuarios.</p>
+          <p>
+            El proyecto consiste en crear una aplicación que le permita a los productores ofertar sus productos,
+            a los transportistas ofertar sus servicios y a los distribuidores tener un trato directo
+            con el productor. La aplicación también permitirá maximizar la ganancia, minimizar el costo
+            y pagar un mejor precio a los tres actores al tener un trato directo entre ellos.
+          </p>
+          <p>
+            Si desea ponerse en contacto con nosotros, puede escribirnos a nuestra dirección de
+            <a href="mailto:administrador@ceresapp.com.mx">correo electrónico</a>.
+          </p>
         </div>
       </div>
     </section>
-    <?php  include("../es/comun/footer.php");
+    <?php include("../es/comun/footer.php");
     ?>
   </div>
 </body>

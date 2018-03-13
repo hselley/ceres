@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 //Regenerar ID
 function iniciarSesion()

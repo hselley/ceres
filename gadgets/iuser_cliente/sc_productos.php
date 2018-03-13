@@ -2,16 +2,16 @@
   <div class="row col-sm-12">
     <div class="col-sm-9">
       <ul class="thumbnails listing-products list-unstyled">
-        <?php 
+        <?php
         if($_GET['param']==1){
           $activo1='active';
           $regreso = ' ';
-          $query = seleccionar("SELECT * FROM producto WHERE Oferta_Fin>'".date('Y-m-d')."' ORDER BY Oferta_Fin");
+          $query = seleccionar("SELECT * FROM producto WHERE Oferta_Fin>'".date('Y-m-d')."' AND Cantidad>0 ORDER BY Oferta_Fin");
           while($row = mysqli_fetch_array($query)) {
             $regreso = '<li class="col-sm-4">
                 <div class="product-box">
                 <span class="sale_tag"></span>';
-            $regreso = $regreso . '<a href="producto_detalle?param='.$row['ID'].'"><img alt="'.$row['foto'].'" src="img/platano.jpeg"></a><br/>';
+            $regreso = $regreso . '<a href="producto_detalle?param='.$row['ID'].'"><img alt="'.$row["Foto"].'" src="producto/'.$row["Foto"].'"></a><br/>';
             $regreso = $regreso . '<a href="producto_detalle?param='.$row['ID'].'" class="title">'.$row['Nombre'].' '.$row['Tipo'].'</a><br/>';
             $regreso = $regreso . '<p class="price">$'.$row['Precio'].'</p></div></li>';
             echo $regreso;
@@ -24,7 +24,7 @@
             $regreso = '<li class="col-sm-4">
                 <div class="product-box">
                 <span class="sale_tag"></span>';
-            $regreso = $regreso . '<a href="producto_detalle?param='.$row['ID'].'"><img alt="'.$row['foto'].'" src="img/platano.jpeg"></a><br/>';
+            $regreso = $regreso . '<a href="producto_detalle?param='.$row['ID'].'"><img alt="'.$row["Foto"].'" src="producto/'.$row["Foto"].'"></a><br/>';
             $regreso = $regreso . '<a href="producto_detalle?param='.$row['ID'].'" class="title">'.$row['Nombre'].' '.$row['Tipo'].'</a><br/>';
             $regreso = $regreso . '<p class="price">$'.$row['Precio'].'</p></div></li>';
             echo $regreso;
@@ -36,7 +36,7 @@
               $regreso = '<li class="col-sm-4">
                   <div class="product-box">
                   <span class="sale_tag"></span>';
-              $regreso = $regreso . '<a href="producto_detalle?param='.$row['ID'].'"><img alt="'.$row['foto'].'" src="img/platano.jpeg"></a><br/>';
+              $regreso = $regreso . '<a href="producto_detalle?param='.$row['ID'].'"><img alt="'.$row["Foto"].'" src="producto/'.$row["Foto"].'"></a><br/>';
               $regreso = $regreso . '<a href="producto_detalle?param='.$row['ID'].'" class="title">'.$row['Nombre'].' '.$row['Tipo'].'</a><br/>';
               $regreso = $regreso . '<p class="price">$'.$row['Precio'].'</p></div></li>';
               echo $regreso;

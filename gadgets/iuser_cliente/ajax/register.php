@@ -1,4 +1,4 @@
-<?php  $tipo = 1; $path = "../"; include("../../../func/funciones.php");
+<?php $tipo = 1; $path = "../"; include("../../../func/funciones.php");
 
 $icr = 1;
 while(isset($_POST["iuserc_".$icr]))
@@ -29,12 +29,10 @@ $cualc = 0;
 	}else{
 		$datosc[$cualc] = ($valuesc[13]."-".$valuesc[14]);$cualc++;
 	}
-	$camposc[$cualc] = 'Banco';
+	$camposc[$cualc] = 'Tarjeta';
 	$datosc[$cualc] = ($valuesc[15]);$cualc++;
-	$camposc[$cualc] = 'Cuenta';
+	$camposc[$cualc] = 'CVV';
 	$datosc[$cualc] = ($valuesc[16]);$cualc++;
-	$camposc[$cualc] = 'Clabe';
-	$datosc[$cualc] = ($valuesc[17]);$cualc++;
 
 	$errorc = insertar($camposc,$datosc,"cliente");
 	$_SESSION["NumCliente"]  = $errorc[1];

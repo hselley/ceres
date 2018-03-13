@@ -1,4 +1,4 @@
-<?php  $tipo = 1; $path = "../"; include("../../../func/funciones.php");
+<?php $tipo = 1; $path = "../"; include("../../../func/funciones.php");
 
 	$ic = 1;
 	while(isset($_POST["cart_".$ic]))
@@ -8,9 +8,13 @@
 	}
 	$cualc = 0;
 		$camposc[$cualc] = 'CCantidad';
-		$datosc[$cualc] = ($c[2]);$cualc++;
+		$datosc[$cualc] = ($_POST[$c[1]]);$cualc++;
 		$tabla="carrito";
 
-		$errorc = actualizarcart($camposc, $datosc, $tabla, $_SESSION['NumCliente'], $c[1]);;
-		echo("OK");
+		if($_POST["cart_1"]!=""){
+			$errorc = actualizarcart($camposc, $datosc, "carrito", $_SESSION['NumCliente'], $_POST["cart_1"]);
+			echo("OK");
+		}else{
+			echo("Selecciona un producto para ser modificado.");
+		}
 ?>

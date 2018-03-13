@@ -210,6 +210,7 @@ function arregloRegistroP()
 		textos_prod[i] = "Favor de indicar la unidad de medida del producto"; i++;
 		textos_prod[i] = "Favor de indicar la disponibilidad del producto"; i++;
 		textos_prod[i] = "Favor de indicar la fecha de fin de oferta"; i++;
+		textos_prod[i] = "Favor de indicar si el producto necesita refrigeración"; i++;
 		textos_prod[i] = "Favor seleccionar una foto"; i++;
 	return textos_prod;
 }
@@ -228,6 +229,7 @@ function validarRegistroP()
 	obl_prod[oi_prod] = 8; oi_prod++;
 	obl_prod[oi_prod] = 9; oi_prod++;
 	obl_prod[oi_prod] = 10; oi_prod++;
+	obl_prod[oi_prod] = 11; oi_prod++;
 
 	cual_prod = 0;
 	for(var i3 = 0; i3 < oi_prod; i3++)
@@ -257,7 +259,7 @@ function registerProductos()
 	}).done(function (response) {
 		//document.getElementById("iuser_waiting").style.display="none";
 			if (response == "OK") {
-			window.location=window.location;
+			window.location="productor";
 			}
 			else
 			{
@@ -267,4 +269,86 @@ function registerProductos()
 
 	});
 
+}
+
+function borrarP(idpe)
+{
+		//document.getElementById("iuser_waiting").style.display="";
+		var algo = idpe;
+    $.ajax({
+			type:'POST',
+			url:'../gadgets/iuser/ajax/eliminar.php',
+			data:'id='+algo,
+	}).done(function (response) {
+		document.getElementById("iuser_waiting").style.display="none";
+			if (response == "OK") {
+				window.location="productor";
+			}else{
+				alerta1(response);
+			}
+	}).fail(function () {
+
+	});
+
+}
+
+function marcarEntregado(idpe)
+{
+		//document.getElementById("iuser_waiting").style.display="";
+		var algo = idpe;
+    $.ajax({
+			type:'POST',
+			url:'../gadgets/iuser/ajax/entregar.php',
+			data:'id='+algo,
+	}).done(function (response) {
+		document.getElementById("iuser_waiting").style.display="none";
+			if (response == "OK") {
+				window.location="productor";
+			}else{
+				alerta1(response);
+			}
+	}).fail(function () {
+
+	});
+
+}
+
+//calificar a los demás
+function verificarCalif(idp){
+	var calif_text = new Array();
+	calif_text[1] = "Favor de escribir un comentario constructivo para Cliente";
+	calif_text[2] = "Favor de escribir un comentario constructivo para Transportista";
+
+	if (!validarVacio("c1_6",calif_text[1]))
+		return;
+	if (!validarVacio("c2_6",calif_text[2]))
+		return;
+
+	calificar(idp);
+}
+
+function calificar(id){
+	//alerta1(id);
+	var algo = id;
+	var formObjCalif = $("#Calif");
+	var formDataCalif = new FormData(document.getElementById('Calif'));
+	formDataCalif.append("id", algo);
+	$.ajax({
+		type:'POST',
+		url:'../gadgets/iuser/ajax/calificar.php',
+		data: formDataCalif,
+		mimeType:"multipart/form-data",
+		contentType: false,
+	  cache: false,
+	  processData:false
+}).done(function (response) {
+	document.getElementById("iuser_waiting").style.display="none";
+		if (response == "OK") {
+			window.location="productor";
+		}else{
+			alerta1(response);
+		}
+}).fail(function () {
+
+});
 }

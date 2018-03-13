@@ -63,9 +63,8 @@ function arregloRegistroC()
 		textos[i] = "Favor de ingresar su celular"; i++;
 		textos[i] = "Favor de ingresar su calle"; i++;
 		textos[i] = "Favor de ingresar su número exterior"; i++;
-		textos[i] = "Favor de escribir el nombre del Banco"; i++;
-		textos[i] = "Favor de escribir su número de cuenta"; i++;
-		textos[i] = "Favor de escribir su CLABE Interbancaria"; i++;
+		textos[i] = "Favor de ingresar su número de tarjeta"; i++;
+		textos[i] = "Favor de escribir el CVV correspondiente a su tarjeta"; i++;
 		textos[i] = "Favor de seleccionar su estado"; i++;
 		textos[i] = "Favor de seleccionar su municipio"; i++;
 		textos[i] = "Favor de seleccionar su código postal"; i++;
@@ -89,7 +88,6 @@ function validarRegistroC()
 	obl_c[oi_c] = 13; oi_c++;
 	obl_c[oi_c] = 15; oi_c++;
 	obl_c[oi_c] = 16; oi_c++;
-	obl_c[oi_c] = 17; oi_c++;
 
 	cual_c = 0;
 	for(var ic = 0; ic < oi_c; ic++)
@@ -215,7 +213,7 @@ function AddToCart()
 	//document.getElementById("iuser_waiting").style.display="none";
 		if (carro == "OK")
 		{
-			//window.location=window.location;
+			window.location=window.location;
 		}
 		else
 		{
@@ -257,6 +255,124 @@ function updateCart()
 	});
 }
 
+function updateTransp()
+{
+	alerta1("entre");
+	document.getElementById("iuser_waiting").style.display="";
+	var formObjCart = $("#NewT");
+	var formDataCart = new FormData(document.getElementById('NewT'));
+	$.ajax({
+		url: '../gadgets/iuser_cliente/ajax/modtransp.php',
+	  type: 'POST',
+	  data:  formDataCart,
+	  mimeType:"multipart/form-data",
+	  contentType: false,
+	  cache: false,
+	  processData:false
+	}).done(function (transp) {
+	//document.getElementById("iuser_waiting").style.display="none";
+		if (transp == "OK")
+		{
+			//window.location=window.location;
+		}
+		else
+		{
+			alerta1(transp);
+			//document.getElementById("iuser_2").focus();
+		}
+	}).fail(function () {
+
+	});
+}
+
+function deleteCart()
+{
+	document.getElementById("iuser_waiting").style.display="";
+	var formObjCart = $("#MCart");
+	var formDataCart = new FormData(document.getElementById('MCart'));
+	$.ajax({
+		url: '../gadgets/iuser_cliente/ajax/elimcart.php',
+	  type: 'POST',
+	  data:  formDataCart,
+	  mimeType:"multipart/form-data",
+	  contentType: false,
+	  cache: false,
+	  processData:false
+	}).done(function (carro) {
+	//document.getElementById("iuser_waiting").style.display="none";
+		if (carro == "OK")
+		{
+			//window.location=window.location;
+		}
+		else
+		{
+			alerta1(carro);
+			//document.getElementById("iuser_2").focus();
+		}
+	}).fail(function () {
+
+	});
+}
+
+function finCompra(){
+	alerta1("Su pedido se está procesando...");
+	$.ajax({
+		url: '../gadgets/iuser_cliente/ajax/finalizarC.php',
+	}).done(function (result) {
+		if (result == "OK")
+		{
+			window.location="gracias";
+		}
+		else
+		{
+			alerta1(result);
+			//document.getElementById("iuser_2").focus();
+		}
+	}).fail(function () {
+
+	});
+}
+
+//calificar a los demás
+function verificarCalif(idp){
+	var calif_text = new Array();
+	calif_text[1] = "Favor de escribir un comentario constructivo para Productor";
+	calif_text[2] = "Favor de escribir un comentario constructivo para Transportista";
+
+	if (!validarVacio("c1_6",calif_text[1]))
+		return;
+	if (!validarVacio("c2_6",calif_text[2]))
+		return;
+
+	calificar(idp);
+}
+
+function calificar(id){
+	//alerta1(id);
+	var algo = id;
+	var formObjCalif = $("#Calif");
+	var formDataCalif = new FormData(document.getElementById('Calif'));
+	formDataCalif.append("id", algo);
+	$.ajax({
+		type:'POST',
+		url:'../gadgets/iuser_cliente/ajax/calificar.php',
+		data: formDataCalif,
+		mimeType:"multipart/form-data",
+		contentType: false,
+	  cache: false,
+	  processData:false
+}).done(function (response) {
+	document.getElementById("iuser_waiting").style.display="none";
+		if (response == "OK") {
+			window.location="cliente";
+		}else{
+			alerta1(response);
+		}
+}).fail(function () {
+
+});
+}
+
 //Cierre de Sesión del Cliente
 function ajaxLogOut()
 {
@@ -279,4 +395,25 @@ function ajaxLogOut()
 	document.getElementById("iuser_waiting").style.display="";
 	ajaxRequest.open("GET", "../gadgets/iuser_cliente/ajax/salir.php", true);
 	ajaxRequest.send(null);
+}
+
+function marcarEntregado(idpe)
+{
+		//document.getElementById("iuser_waiting").style.display="";
+		var algo = idpe;
+    $.ajax({
+			type:'POST',
+			url:'../gadgets/iuser_cliente/ajax/entregar.php',
+			data:'id='+algo,
+	}).done(function (response) {
+		document.getElementById("iuser_waiting").style.display="none";
+			if (response == "OK") {
+				window.location="cliente";
+			}else{
+				alerta1(response);
+			}
+	}).fail(function () {
+
+	});
+
 }

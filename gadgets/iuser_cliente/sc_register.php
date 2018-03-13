@@ -49,10 +49,10 @@
   	 <label for="apellido">Estado*:</label>
   	 <select class="form-control" name="iuserc_8" id="iuserc_8">
        <option value="-1">Seleccionar...</option>
-  		 <?php  $res = seleccionar("SELECT DISTINCT idEstado, estado FROM sepomex ORDER BY estado");
+  		 <?php $res = seleccionar("SELECT DISTINCT idEstado, estado FROM sepomex ORDER BY estado");
   		 		while ($row = mysqli_fetch_array($res)){?>
-  					<option value="<?php  echo $row["idEstado"]?>"><?php  echo $row["estado"]?></option>
-  				<?php  } ?>
+  					<option value="<?php echo $row["idEstado"]?>"><?php echo $row["estado"]?></option>
+  				<?php } ?>
   		</select>
    </div>
    <div class="form-group">
@@ -86,16 +86,12 @@
   	 <input type="text" class="form-control" name="iuserc_14" id="iuserc_14">
    </div>
    <div class="form-group">
-  	 <label for="apellido">Nombre del Banco*:</label>
-  	 <input type="text" class="form-control" name="iuserc_15" id="iuserc_15">
+  	 <label for="apellido">Número de Tarjeta*:</label>
+  	 <input type="text" minlength="15" maxlength="16" class="form-control" name="iuserc_15" id="iuserc_15">
    </div>
    <div class="form-group">
-  	 <label for="apellido">No. Cuenta Bancaria*:</label>
-  	 <input type="text" class="form-control" name="iuserc_16" id="iuserc_16">
-   </div>
-   <div class="form-group">
-  	 <label for="apellido">No. CLABE Interbancaria*:</label>
-  	 <input type="text" class="form-control" name="iuserc_17" id="iuserc_17">
+  	 <label for="apellido">CVV*:</label>
+  	 <input type="text" minlength="3" maxlength="4" class="form-control" name="iuserc_16" id="iuserc_16">
    </div>
    <div class="checkbox">
   	 <label><input type="checkbox" required name="chk_1" id="chk_1">Acepto las Condiciones de Participación como Productor CERES*</label>

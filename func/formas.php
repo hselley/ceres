@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /* Upload File
 sube el archivo enviado al servidor */

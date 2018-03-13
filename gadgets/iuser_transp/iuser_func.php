@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 //Valida si existe el email registrado
 function validarEmailT($usuario)

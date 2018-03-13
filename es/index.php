@@ -1,6 +1,6 @@
-<?php  include("comun/htop.php");
+<?php include("comun/htop.php");
 $titulo = "Del Campo a la Ciudad"?>
-<?php  include("comun/header.php"); ?>
+<?php include("comun/header.php"); ?>
 </head>
 <body>
   <div id="wrapper" class="container">
@@ -9,7 +9,8 @@ $titulo = "Del Campo a la Ciudad"?>
       <h1 style="color: rgb(49, 68, 30);">CERES - Del Campo a la Ciudad</h1>
     </section>
     <section class="header_text">
-      CERES - Del Campo a la Ciudad es una iniciativa de CONACYD orem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      CERES - Del Campo a la Ciudad, busca impulsar el crecimiento agropecuario de
+      los productores en México, eficientar el transporte y ofrecer precios atractivos al cliente.
     </section>
 
     <section class="main-content">
@@ -44,4 +45,4 @@ $titulo = "Del Campo a la Ciudad"?>
         </div>
       </div>
     </section>
-    <?php  include("comun/footer.php"); ?>
+    <?php include("comun/footer.php"); ?>
