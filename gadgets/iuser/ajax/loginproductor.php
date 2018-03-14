@@ -13,6 +13,6 @@ while(isset($_POST["loginp_".$i]))
 		$_SESSION['NumProductor']=$r["ID"];// Initializing Session
 		echo("OK");
 	} else {?>
-		<?phpecho ("ERROR: El usuario y/o contraseña no son correctos");?>
+		<?php echo ("ERROR: El usuario y/o contraseña no son correctos");?>
 	<?php }
 ?>

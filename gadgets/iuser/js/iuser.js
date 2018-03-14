@@ -259,7 +259,7 @@ function registerProductos()
 	}).done(function (response) {
 		//document.getElementById("iuser_waiting").style.display="none";
 			if (response == "OK") {
-			window.location="productor";
+			window.location="productor.php";
 			}
 			else
 			{
@@ -282,7 +282,7 @@ function borrarP(idpe)
 	}).done(function (response) {
 		document.getElementById("iuser_waiting").style.display="none";
 			if (response == "OK") {
-				window.location="productor";
+				window.location="productor.php";
 			}else{
 				alerta1(response);
 			}
@@ -303,7 +303,7 @@ function marcarEntregado(idpe)
 	}).done(function (response) {
 		document.getElementById("iuser_waiting").style.display="none";
 			if (response == "OK") {
-				window.location="productor";
+				window.location="productor.php";
 			}else{
 				alerta1(response);
 			}
@@ -344,7 +344,7 @@ function calificar(id){
 }).done(function (response) {
 	document.getElementById("iuser_waiting").style.display="none";
 		if (response == "OK") {
-			window.location="productor";
+			window.location="productor.php";
 		}else{
 			alerta1(response);
 		}

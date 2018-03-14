@@ -253,7 +253,7 @@ function marcarEntregado(idpe)
 	}).done(function (response) {
 		document.getElementById("iuser_waiting").style.display="none";
 			if (response == "OK") {
-				window.location="transportista";
+				window.location="transportista.php";
 			}else{
 				alerta1(response);
 			}
@@ -294,7 +294,7 @@ function calificar(id){
 }).done(function (response) {
 	document.getElementById("iuser_waiting").style.display="none";
 		if (response == "OK") {
-			window.location="cliente";
+			window.location="cliente.php";
 		}else{
 			alerta1(response);
 		}

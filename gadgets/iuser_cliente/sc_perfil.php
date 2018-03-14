@@ -78,7 +78,7 @@
                     $inventario = $inventario . "</tbody></table>";
                     echo $inventario;
                   }else{
-                    echo ("Realiza una compra <a href='productos'>AQUÍ</a>");
+                    echo ("Realiza una compra <a href='productos.php'>AQUÍ</a>");
                   }
                   ?>
                 </div>
@@ -145,7 +145,7 @@
                       }
                       echo "</table></div>";
                     }else{
-                      echo ("No hay órdenes pendientes. Realiza una compra <a href='productos'>AQUÍ</a>");
+                      echo ("No hay órdenes pendientes. Realiza una compra <a href='productos.php'>AQUÍ</a>");
                     }
                     ?>
                 </div>

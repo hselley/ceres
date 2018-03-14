@@ -41,7 +41,7 @@
       $estN = $row['estado'];
     }
     if($ofin>date("Y-m-d")){
-      $rdetail = $rdetail . '<a href="producto/'.$foto.'" class="thumbnail" data-fancybox-group="group1" title="Description 1"><img alt="'.$foto.'" src="producto/'.$foto.'"></a>
+      $rdetail = $rdetail . '<a href="producto.php/'.$foto.'" class="thumbnail" data-fancybox-group="group1" title="Description 1"><img alt="'.$foto.'" src="producto/'.$foto.'"></a>
                 </div>
                   <div class="col-sm-5">
                     <address>
@@ -110,8 +110,8 @@
       <div class="block">
         <ul class="nav nav-list">
           <li class="nav-header"><strong>BÚSQUEDA POR FILTROS</strong></li>
-          <li><a href="productos?param=1">PRÓXIMOS EN IRSE</a></li>
-          <li><a href="productos?param=2">DISPONIBILIDAD INMEDIATA</a></li>
+          <li><a href="productos.php?param=1">PRÓXIMOS EN IRSE</a></li>
+          <li><a href="productos.php?param=2">DISPONIBILIDAD INMEDIATA</a></li>
         </ul>
       </div>
     </div>

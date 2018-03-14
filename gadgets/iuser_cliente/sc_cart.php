@@ -88,8 +88,8 @@
       <div class="block">
         <ul class="nav nav-list">
           <li class="nav-header"><strong>BÚSQUEDA POR FILTROS</strong></li>
-          <li><a href="productos?param=1">PRÓXIMOS EN IRSE</a></li>
-          <li><a href="productos?param=2">DISPONIBILIDAD INMEDIATA</a></li>
+          <li><a href="productos.php?param=1">PRÓXIMOS EN IRSE</a></li>
+          <li><a href="productos.php?param=2">DISPONIBILIDAD INMEDIATA</a></li>
         </ul>
       </div>
     </div>

@@ -84,9 +84,9 @@ $titulo = "Clientes"?>
               <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Productos <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="productos">TODOS</a></li>
-                  <li><a href="productos?param=1">PRÓXIMOS EN IRSE</a></li>
-                  <li><a href="productos?param=2">DISPONIBILIDAD INMEDIATA</a></li>
+                  <li><a href="productos.php">TODOS</a></li>
+                  <li><a href="productos.php?param=1">PRÓXIMOS EN IRSE</a></li>
+                  <li><a href="productos.php?param=2">DISPONIBILIDAD INMEDIATA</a></li>
                 </ul>
               </li>
               <li><a href="cart">Carrito</a></li>

@@ -11,8 +11,8 @@
             $regreso = '<li class="col-sm-4">
                 <div class="product-box">
                 <span class="sale_tag"></span>';
-            $regreso = $regreso . '<a href="producto_detalle?param='.$row['ID'].'"><img alt="'.$row["Foto"].'" src="producto/'.$row["Foto"].'"></a><br/>';
-            $regreso = $regreso . '<a href="producto_detalle?param='.$row['ID'].'" class="title">'.$row['Nombre'].' '.$row['Tipo'].'</a><br/>';
+            $regreso = $regreso . '<a href="producto_detalle.php?param='.$row['ID'].'"><img alt="'.$row["Foto"].'" src="producto/'.$row["Foto"].'"></a><br/>';
+            $regreso = $regreso . '<a href="producto_detalle.php?param='.$row['ID'].'" class="title">'.$row['Nombre'].' '.$row['Tipo'].'</a><br/>';
             $regreso = $regreso . '<p class="price">$'.$row['Precio'].'</p></div></li>';
             echo $regreso;
           }
@@ -24,8 +24,8 @@
             $regreso = '<li class="col-sm-4">
                 <div class="product-box">
                 <span class="sale_tag"></span>';
-            $regreso = $regreso . '<a href="producto_detalle?param='.$row['ID'].'"><img alt="'.$row["Foto"].'" src="producto/'.$row["Foto"].'"></a><br/>';
-            $regreso = $regreso . '<a href="producto_detalle?param='.$row['ID'].'" class="title">'.$row['Nombre'].' '.$row['Tipo'].'</a><br/>';
+            $regreso = $regreso . '<a href="producto_detalle.php?param='.$row['ID'].'"><img alt="'.$row["Foto"].'" src="producto/'.$row["Foto"].'"></a><br/>';
+            $regreso = $regreso . '<a href="producto_detalle.php?param='.$row['ID'].'" class="title">'.$row['Nombre'].' '.$row['Tipo'].'</a><br/>';
             $regreso = $regreso . '<p class="price">$'.$row['Precio'].'</p></div></li>';
             echo $regreso;
           }
@@ -36,8 +36,8 @@
               $regreso = '<li class="col-sm-4">
                   <div class="product-box">
                   <span class="sale_tag"></span>';
-              $regreso = $regreso . '<a href="producto_detalle?param='.$row['ID'].'"><img alt="'.$row["Foto"].'" src="producto/'.$row["Foto"].'"></a><br/>';
-              $regreso = $regreso . '<a href="producto_detalle?param='.$row['ID'].'" class="title">'.$row['Nombre'].' '.$row['Tipo'].'</a><br/>';
+              $regreso = $regreso . '<a href="producto_detalle.php?param='.$row['ID'].'"><img alt="'.$row["Foto"].'" src="producto/'.$row["Foto"].'"></a><br/>';
+              $regreso = $regreso . '<a href="producto_detalle.php?param='.$row['ID'].'" class="title">'.$row['Nombre'].' '.$row['Tipo'].'</a><br/>';
               $regreso = $regreso . '<p class="price">$'.$row['Precio'].'</p></div></li>';
               echo $regreso;
             }
@@ -51,8 +51,8 @@
       <div class="block">
         <ul class="nav nav-list">
           <li class="nav-header"><strong>BÚSQUEDA POR FILTROS</strong></li>
-          <li class=<?php echo $activo1; ?>><a href="productos?param=1">PRÓXIMOS EN IRSE</a></li>
-          <li class=<?php echo $activo2; ?>><a href="productos?param=2">DISPONIBILIDAD INMEDIATA</a></li>
+          <li class=<?php echo $activo1; ?>><a href="productos.php?param=1">PRÓXIMOS EN IRSE</a></li>
+          <li class=<?php echo $activo2; ?>><a href="productos.php?param=2">DISPONIBILIDAD INMEDIATA</a></li>
         </ul>
       </div>
     </div>

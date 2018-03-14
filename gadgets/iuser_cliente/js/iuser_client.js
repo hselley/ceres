@@ -321,7 +321,7 @@ function finCompra(){
 	}).done(function (result) {
 		if (result == "OK")
 		{
-			window.location="gracias";
+			window.location="gracias.php";
 		}
 		else
 		{
@@ -364,7 +364,7 @@ function calificar(id){
 }).done(function (response) {
 	document.getElementById("iuser_waiting").style.display="none";
 		if (response == "OK") {
-			window.location="cliente";
+			window.location="cliente.php";
 		}else{
 			alerta1(response);
 		}
@@ -408,7 +408,7 @@ function marcarEntregado(idpe)
 	}).done(function (response) {
 		document.getElementById("iuser_waiting").style.display="none";
 			if (response == "OK") {
-				window.location="cliente";
+				window.location="cliente.php";
 			}else{
 				alerta1(response);
 			}

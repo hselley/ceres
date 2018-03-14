@@ -34,17 +34,17 @@ if($yacr['ID_Cliente']!=$_SESSION["NumCliente"]){ ?>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="cliente">Mi Perfil de Cliente</a></li>
+        <li class="active"><a href="cliente.php">Mi Perfil de Cliente</a></li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Productos <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="productos">TODOS</a></li>
-            <li><a href="productos?param=1">PRÓXIMOS EN IRSE</a></li>
-            <li><a href="productos?param=2">DISPONIBILIDAD INMEDIATA</a></li>
+            <li><a href="productos.php">TODOS</a></li>
+            <li><a href="productos.php?param=1">PRÓXIMOS EN IRSE</a></li>
+            <li><a href="productos.php?param=2">DISPONIBILIDAD INMEDIATA</a></li>
           </ul>
         </li>
-        <li><a href="cart">Carrito</a></li>
-        <li><a href="checkout">Checkout</a></li>
+        <li><a href="cart.php">Carrito</a></li>
+        <li><a href="checkout.php">Checkout</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a onClick="ajaxLogOut()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
